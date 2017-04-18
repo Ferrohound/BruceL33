@@ -43,7 +43,7 @@ class PunchAI(object):
                 return
                 
         # Just spam kick
-        self.cc.commandCall("B")
+        self.cc.commandCall("A")
                         
     # This part is mandatory
     class Java:
