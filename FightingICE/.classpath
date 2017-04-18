@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="lib" path="FTG3.10/FightingICEver.3.10/AIToolKit.jar"/>
+	<classpathentry kind="lib" path="FTG3.10/FightingICEver.3.10/FightingICE.jar"/>
+	<classpathentry kind="lib" path="FTG3.10/FightingICEver.3.10/lib/commons_csv.jar"/>
+	<classpathentry kind="lib" path="FTG3.10/FightingICEver.3.10/lib/fileLib.jar"/>
+	<classpathentry kind="lib" path="FTG3.10/FightingICEver.3.10/lib/gameLib.jar"/>
+	<classpathentry kind="lib" path="FTG3.10/FightingICEver.3.10/lib/javatuples-1.2.jar"/>
+	<classpathentry kind="lib" path="FTG3.10/FightingICEver.3.10/lib/jinput.jar"/>
+	<classpathentry kind="lib" path="FTG3.10/FightingICEver.3.10/lib/lwjgl_util.jar"/>
+	<classpathentry kind="lib" path="FTG3.10/FightingICEver.3.10/lib/lwjgl.jar"/>
+	<classpathentry kind="lib" path="FTG3.10/FightingICEver.3.10/lib/py4j0.10.4.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/commons_csv.jar"/>
+	<classpathentry kind="lib" path="lib/fileLib.jar"/>
+	<classpathentry kind="lib" path="lib/gameLib.jar"/>
+	<classpathentry kind="lib" path="lib/javatuples-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/jinput.jar"/>
+	<classpathentry kind="lib" path="lib/lwjgl_util.jar"/>
+	<classpathentry kind="lib" path="lib/lwjgl.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="FightingICE/lib/native/windows"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/py4j0.10.4.jar"/>
+	<classpathentry kind="lib" path="FightingICE.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
