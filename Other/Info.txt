@@ -1,0 +1,35 @@
+MCST -
+	This is our sample AI that we recommend you guys check. 
+	It implements Monte Carlo Tree Search. 
+	The source codes in the above zip file have comments in Japanese, 
+	but you can have their version in English here 
+
+
+DisplayInfoAI
+	This is another sample AI that we recommend you guys check. 
+	It implements a simple AI using visual information from the game screen, 
+	which is not delayed! 
+	In particular, this AI uses a method called getDisplayByteBufferAsBytes.
+	For this method, we recommend you specify the arguments to 96, 64, and 1 (true), respectively, 
+	by which the response time to acquire this 96x64 grayscale image's byte information would be 
+	less than 4ms (confirmed on Windows).
+
+Below is how to use this function in Java and Python.
+//----------------------//
+- In Java
+
+@Override
+public void getInformation(FrameData fd) {
+FrameData frameData = fd;
+// Obtain RGB data of the screen in the form of byte[]
+byte[] buffer = fd.getDisplayByteBufferAsBytes(96, 64, true);
+}
+//----------------------//
+- In Python
+
+buffer = self.fd.getDisplayByteBufferAsBytes(96, 64, True)
+//----------------------//
+
+BasicBot
+	This is yet another sample AI in Python that we recommend you guys check. 
+	It implements a visual-based deep learning AI. This one is competition compatible. 

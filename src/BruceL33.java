@@ -63,17 +63,10 @@ If there is anything that needs to be initialized, you had better do it in this 
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
-	@Override
-	public Key input() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	/*
-	 * This method processes the data from AI. It is executed in each frame.
-	 * The input method receives key inputted from AI. It is executed in each frame and returns a value in the Key type. 
-	 * Key has the following instance fields:
+	 *The input method receives key inputted from AI. It is executed in each frame and returns a value in the Key type. 
+	Key has the following instance fields:
 	boolean U
 	boolean D
 	boolean L
@@ -83,6 +76,16 @@ If there is anything that needs to be initialized, you had better do it in this 
 	boolean C
 	The instance-field U, D, L, and R represent the direction key inputted by the player using the numeric keypad. 
 	They are also used in a combination with the instance-field A, B, and C for generating a skill.
+	 */
+
+	@Override
+	public Key input() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/*
+	 * This method processes the data from AI. It is executed in each frame.
 	 */
 	@Override
 	public void processing() {
