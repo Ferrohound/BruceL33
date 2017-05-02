@@ -10,6 +10,15 @@ import structs.Key;
 	for each frame.
  */
 
+/*
+ * Useful classes
+ * Action
+ * FrameData
+ * CharacterData
+ * MotionData
+ * 
+ */
+
 public class BruceL33 implements AIInterface {
 
 	/*

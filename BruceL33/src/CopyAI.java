@@ -1,6 +1,10 @@
 import structs.FrameData;
 import structs.GameData;
 import structs.Key;
+import structs.MotionData;
+
+import org.w3c.dom.CharacterData;
+
 import gameInterface.AIInterface;
 
 /*
@@ -14,12 +18,15 @@ public class CopyAI implements AIInterface {
 	
 	@Override
 	public void close() {
+		
+		
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public String getCharacter() {
+
 		// TODO Auto-generated method stub
 		return CHARACTER_ZEN;
 	}
@@ -57,6 +64,7 @@ public class CopyAI implements AIInterface {
 				inputKey.L = inputKey.L ? false : true;
 			}
 		}
+		
 	}
 
 }
