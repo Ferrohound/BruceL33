@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="BruceL33/src"/>
+	<classpathentry kind="lib" path="BruceL33/AIToolKit.jar"/>
+	<classpathentry kind="lib" path="FightingICE/AIToolKit.jar"/>
+	<classpathentry kind="lib" path="FightingICE/data/ai/BruceL33.jar"/>
+	<classpathentry kind="lib" path="FightingICE/data/ai/CopyAI.jar"/>
+	<classpathentry kind="lib" path="FightingICE/data/ai/RandomAI.jar"/>
+	<classpathentry kind="lib" path="FightingICE/FightingICE.jar"/>
+	<classpathentry kind="lib" path="FightingICE/lib/commons_csv.jar"/>
+	<classpathentry kind="lib" path="FightingICE/lib/fileLib.jar"/>
+	<classpathentry kind="lib" path="FightingICE/lib/gameLib.jar"/>
+	<classpathentry kind="lib" path="FightingICE/lib/javatuples-1.2.jar"/>
+	<classpathentry kind="lib" path="FightingICE/lib/jinput.jar"/>
+	<classpathentry kind="lib" path="FightingICE/lib/lwjgl_util.jar"/>
+	<classpathentry kind="lib" path="FightingICE/lib/lwjgl.jar"/>
+	<classpathentry kind="lib" path="FightingICE/lib/py4j0.10.4.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
