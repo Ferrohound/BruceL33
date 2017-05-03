@@ -1,7 +1,8 @@
 import sys
 from time import sleep
 from py4j.java_gateway import JavaGateway, GatewayParameters, CallbackServerParameters, get_field
-from printer import printer
+from BruceL33p import BruceL33p
+from machete import Machete
 
 def check_args(args):
 	for i in range(argc):
@@ -11,10 +12,11 @@ def check_args(args):
 
 def start_game():
 	for i in range(GAME_NUM):
-		manager.registerAI("printer", printer(gateway))
+		manager.registerAI("BruceL33p", BruceL33p(gateway))
+		manager.registerAI("machete",Machete(gateway))
 		print("Start game", i)
 	
-		game = manager.createGame("ZEN", "LUD", "printer", "RandomAI")
+		game = manager.createGame("ZEN", "LUD", "BruceL33p", "machete")
 		manager.runGame(game)
 	
 		print("After game", i)
