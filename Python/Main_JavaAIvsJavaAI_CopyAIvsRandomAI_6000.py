@@ -12,7 +12,7 @@ def start_game():
 	for i in range(GAME_NUM):
 		print("Start game", i)
 	
-		game = manager.createGame("ZEN", "LUD", "Printer", "RandomAI")
+		game = manager.createGame("ZEN", "LUD", "CopyAI", "RandomAI")
 		manager.runGame(game)
 	
 		print("After game", i)
