@@ -11,11 +11,18 @@ def check_args(args):
 
 def start_game():
 	for i in range(GAME_NUM):
-		manager.registerAI("BruceL33p", BruceL33p(gateway))
+		Bruce = BruceL33p(gateway)
+		manager.registerAI("BruceL33p", Bruce)
 		print("Start game", i)
 	
 		game = manager.createGame("ZEN", "LUD", "BruceL33p", "RandomAI")
 		manager.runGame(game)
+
+                print "nap time my dude!"
+                Bruce.WriteQTable("QTable.txt")
+                Bruce.WriteRTable("RTable.txt")
+                sleep(60)
+                print "RUDE AWAKENING *ANGERY*"
 	
 		print("After game", i)
 		sys.stdout.flush()

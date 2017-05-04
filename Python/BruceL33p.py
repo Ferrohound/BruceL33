@@ -7,8 +7,8 @@ possible_actions = ["AIR","AIR_A","AIR_B","AIR_D_DB_BA","AIR_D_DB_BB","AIR_D_DF_
 
 Q_Table = {}
 R_Table = {}
-init_q_value = -1.0
-init_r_value = -1.0
+init_q_value = 0.0
+init_r_value = 0.0
 downed_self_reward = -15
 downed_enemy_reward = 15
 
@@ -27,10 +27,10 @@ class BruceL33p(object):
         self.height = 64 # The height of the display to obtain
         self.grayscale = True # The display"s color to obtain true for grayscale, false for RGB
 
-        print "__init__()..."
-        print "__init__()..."
-        print "__init__()..."
-        print "__init__()..."
+##        print "__init__()..."
+##        print "__init__()..."
+##        print "__init__()..."
+##        print "__init__()..."
 
 
     def getCharacter(self):
@@ -39,36 +39,41 @@ class BruceL33p(object):
 
 ##    WRITE OUT THE Q_TABLE TO A TEXT FILE SO I CAN LOOK AT IT
     def WriteQTable(self, fname):
+        print "Time to write the reward table!"
         out = open(fname, 'w')
         for s in Q_Table.keys():
             print "Writing Q out @ state:\t" + s
             out.write(s+'\n')
             for a in Q_Table[s].keys():
-                print "Writing Q out @ [state][action]:\t[" + s + "][" + act + "]
-                out.write('\t'+a+'\t-\t'+Q_Table[s][a]+'\n')
+                print "Writing Q out @ [state][action]:\t[" + s + "][" + a + "]"
+                out.write('\t'+a+'\t-\t'+str(Q_Table[s][a])+'\n')
         out.close()
+        print "Done Writing Q Table."
 
 
 ##    WRITE OUT THE R_TABLE TO A TEXT FILE SO I CAN LOOK AT IT
     def WriteRTable(self, fname):
+        print "Time to write the reward table!"
         out = open(fname, 'w')
         for s in R_Table.keys():
             print "Writing R out @ state:\t" + s
             out.write(s+'\n')
             for a in R_Table[s].keys():
-                out.write('\t'+a+'\t-\t'+R_Table[s][a]+'\n')
+                out.write('\t'+a+'\t-\t'+str(R_Table[s][a])+'\n')
         out.close()
+        print "Done Writing R Table."
 
 
 ##    CLOSING FUNCTION CALLED BY JAVA
     def close(self):
-        print "Closing..."
-        print "WriteQTable()..."
-        self.WriteQTable("QTable.txt")
-        print "WriteRTable()..."
-        self.WriteRTable("RTable.txt")
-        print "Finished all writing"
-
+##        print "Closing..."
+##        print "WriteQTable()..."
+##        self.WriteQTable("QTable.txt")
+##        print "WriteRTable()..."
+##        self.WriteRTable("RTable.txt")
+##        print "Finished all writing"
+        pass
+    
     def initialize(self, gameData, player):
         self.inputKey = self.gateway.jvm.structs.Key()
         self.frameData = self.gateway.jvm.structs.FrameData()
@@ -124,11 +129,19 @@ class BruceL33p(object):
         if self.cc.getskillFlag():
             self.inputKey = self.cc.getSkillKey()
             return
+        
+##        if self.frameData.getRemainingFramesNumber() == 10 :
+##            print "Going to write to Q & R tables now."
+##            self.WriteQTable()
+##            self.WriteRTable()
+##            print "Done."
 
         self.inputKey.empty()
         self.cc.skillCancel()
 
 
+            
+        
 ##        ENCODE THE CURRENT STATE
         state = self.encodeState()
         if not state in Q_Table:

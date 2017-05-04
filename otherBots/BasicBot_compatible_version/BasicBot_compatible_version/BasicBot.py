@@ -42,7 +42,7 @@ if __name__ == '__main__':
     from Monitor import *
 else:
     model_paths = ['BasicBot.pkl', 
-                   '../FightingICEver.3.10/data/aiData/BasicBot/BasicBot.pkl']
+                   '../../../FightingICEver.3.10/data/aiData/BasicBot/BasicBot.pkl']
     model, s1, q = None, None, None
     
     for model_path in model_paths:

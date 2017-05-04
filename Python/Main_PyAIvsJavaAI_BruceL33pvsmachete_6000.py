@@ -12,7 +12,8 @@ def check_args(args):
 
 def start_game():
 	for i in range(GAME_NUM):
-		manager.registerAI("BruceL33p", BruceL33p(gateway))
+		Bruce = BruceL33p(gateway)
+		manager.registerAI("BruceL33p", Bruce)
 		manager.registerAI("machete",Machete(gateway))
 		print("Start game", i)
 	
