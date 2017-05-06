@@ -98,8 +98,8 @@ class RunBruceL33pPolicy(object):
     def reset(self):
         self.prev_action = "STAND"  # player starts standing
         self.prev_state = ""
-        self.prev_my_hp = 0#self.cc.getMyHP()
-        self.prev_enemy_hp = 0# self.cc.getEnemyHP()
+        self.prev_my_hp = 0     #self.cc.getMyHP()
+        self.prev_enemy_hp = 0  # self.cc.getEnemyHP()
 ##        print "Finished self.reset()"
         
     def getInformation(self, frameData):
