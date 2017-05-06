@@ -214,8 +214,23 @@ class BruceL33p(object):
             
 
     def PickActionFrom(self, Q_s):
-        #print "Q_s:",Q_s
-        return random.choice(Q_s.keys())
+        random_float = random.random()
+        if random_float <= epsilon:
+            return random.choice(Q_s.keys())
+
+        return self.GetBestActionFrom(Q_s)
+        
+    def GetBestActionFrom(self, Q_s):
+        possible_acts = Q_s.keys()
+        best_action = possible_acts[0]
+        best_q = Q_s[best_action]
+        
+        for act in possible_acts:
+            if Q_s[act] > best_q:
+                best_action = act
+                best_q = Q_s[act]
+
+        return best_action 
 
     def GetMaxQFrom(self,Q_s):
         #print "GetMaxQFrom"
