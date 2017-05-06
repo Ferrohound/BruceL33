@@ -11,6 +11,8 @@ init_q_value = 0.0
 init_r_value = 0.0
 downed_self_reward = -15
 downed_enemy_reward = 15
+win_reward = 100
+lose_reward = -100
 
 hp_grouping = 20
 energy_grouping = 5
@@ -26,7 +28,7 @@ class BruceL33p(object):
         self.width = 96 # The width of the display to obtain
         self.height = 64 # The height of the display to obtain
         self.grayscale = True # The display"s color to obtain true for grayscale, false for RGB
-
+        self.running = False
 ##        print "__init__()..."
 ##        print "__init__()..."
 ##        print "__init__()..."
@@ -83,17 +85,33 @@ class BruceL33p(object):
         self.gameData = gameData
 
         # define prev statuses
-        self.prev_action = "STAND"  # player starts standing
-        self.prev_state = ""
-        self.prev_my_hp = self.cc.getMyHP()
-        self.prev_enemy_hp = self.cc.getEnemyHP()
-
-        print "initializing..."
-        print "initializing..."
-        print "initializing..."
-        print "initializing..."
+        self.reset()
+        
+        
         
         return 0
+
+    def reset(self):
+##        if self.running:    ##  DETERMINE IF WE WON BASED ON PREVIOUS HP - PUNISH THE PREV STATE AND PREV ACTION APPROPRIATELY
+##            print "Determining if we won..."
+##            if self.prev_my_hp > self.prev_enemy_hp:   ##  WON
+##                print "\n\n\nWE WON \tRestarting...\n\n\n"
+##                R_Table[self.prev_state][self.prev_action] = win_reward
+##            else:                                   ##  LOST
+##                print "\n\n\nWE LOST/TIED \tRestarting...\n\n\n"
+##                print self.prev_state,self.prev_action
+##                if not self.prev_state in R_Table:
+##                    print "The issue is the prev state isn't in the R_Table!"
+##                R_Table[self.prev_state][self.prev_action] = lose_reward
+##            self.running = False
+##        else:
+##            print "Restarted but not the first time"
+        
+        self.prev_action = "STAND"  # player starts standing
+        self.prev_state = ""
+        self.prev_my_hp = 0#self.cc.getMyHP()
+        self.prev_enemy_hp = 0# self.cc.getEnemyHP()
+##        print "Finished self.reset()"
         
     def getInformation(self, frameData):
         self.frameData = frameData
@@ -104,10 +122,10 @@ class BruceL33p(object):
 
     def encodeState(self):
 ##        my_char = self.cc.getMyCharacter()
-        my_hp = self.cc.getMyHP() / hp_grouping
+##        my_hp = self.cc.getMyHP() / hp_grouping
         my_energy = self.cc.getMyEnergy() / energy_grouping
 ##        enemy_char = self.cc.getEnemyCharacter()
-        enemy_hp = self.cc.getEnemyHP() / hp_grouping
+##        enemy_hp = self.cc.getEnemyHP() / hp_grouping
         enemy_energy = self.cc.getEnemyEnergy() / energy_grouping
 
         dist_x = self.cc.getEnemyX() - self.cc.getMyX()
@@ -115,7 +133,8 @@ class BruceL33p(object):
         myChar = self.cc.getMyCharacter()
         myStatus = self.cc.getMyCharacter().getState()
         oppStatus = self.cc.getEnemyCharacter().getState()
-        data = (my_hp, my_energy, enemy_hp, enemy_energy, dist_x, dist_y, myStatus, oppStatus, self.prev_action)
+        oppAction = self.cc.getEnemyCharacter().getAction()
+        data = (my_energy, enemy_energy, dist_x, dist_y, myStatus, oppStatus, oppAction, self.prev_action)
         
         return_msg = ""
         for info in data:
@@ -125,23 +144,18 @@ class BruceL33p(object):
     def processing(self):
         if self.frameData.getEmptyFlag() or self.frameData.getRemainingTime() <= 0:
             self.isGameJustStarted = True
+            self.reset()
             return
+
+        self.running = True
         if self.cc.getskillFlag():
             self.inputKey = self.cc.getSkillKey()
             return
-        
-##        if self.frameData.getRemainingFramesNumber() == 10 :
-##            print "Going to write to Q & R tables now."
-##            self.WriteQTable()
-##            self.WriteRTable()
-##            print "Done."
 
         self.inputKey.empty()
         self.cc.skillCancel()
 
 
-            
-        
 ##        ENCODE THE CURRENT STATE
         state = self.encodeState()
         if not state in Q_Table:
@@ -156,8 +170,8 @@ class BruceL33p(object):
         if self.prev_state != "":
             # calculate the reward for this state - if took damage, punish; if dealt damage, reward
             state_reward = self.CalculateReward()
-            if state_reward != 0:
-                print "The reward for this frame is:\t" + str(state_reward)
+##            if state_reward != 0:
+##                print "The reward for this frame is:\t" + str(state_reward)
             self.setReward(self.prev_state, self.prev_action, state_reward)
 
 
@@ -167,7 +181,7 @@ class BruceL33p(object):
             print " we  have  a  problem "
             Q_Table[state][action] = init_q_value
 
-        print "We picked our action:", action
+##        print "We picked our action:", action
 
 ##        PROPOGATE BACK THE Q-VALUE 
         if self.prev_state != "":    # if it is not the first frame
@@ -175,7 +189,7 @@ class BruceL33p(object):
             q = Q_Table[self.prev_state][self.prev_action]
             r = R_Table[self.prev_state][self.prev_action]
             maxQ = self.GetMaxQFrom(Q_Table[self.prev_state])
-            print "q:\t" + str(q) + "\tr:\t" + str(r) + "\tmaxQ:\t" + str(maxQ)
+##            print "q:\t" + str(q) + "\tr:\t" + str(r) + "\tmaxQ:\t" + str(maxQ)
             value = q + alpha * (r + gamma * maxQ - q)
             print "We set the Q_Table value:\t" + str(value)
             Q_Table[self.prev_state][self.prev_action] = value
