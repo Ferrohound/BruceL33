@@ -175,7 +175,7 @@ class RunBruceL33pPolicy(object):
         
     def GetBestActionFrom(self, Q_s):
         possible_acts = Q_s.keys()
-        best_action = possible_acts[0]
+        best_action = random.choice(possible_acts)
         best_q = Q_s[best_action]
         
         for act in possible_acts:
