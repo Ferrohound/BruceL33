@@ -19,7 +19,7 @@ energy_grouping = 5
 
 alpha = 0.8
 gamma = 0.2
-epsilon = 0.3
+epsilon = 0.01
 
 
 def LoadQTable():
@@ -83,30 +83,16 @@ class RunBruceL33pPolicy(object):
         out.close()
         print "Done Writing R Table."
 
-
-##    CLOSING FUNCTION CALLED BY JAVA
     def close(self):
-##        print "Closing..."
-##        print "WriteQTable()..."
-##        self.WriteQTable("QTable.txt")
-##        print "WriteRTable()..."
-##        self.WriteRTable("RTable.txt")
-##        print "Finished all writing"
         pass
     
     def initialize(self, gameData, player):
         self.inputKey = self.gateway.jvm.structs.Key()
         self.frameData = self.gateway.jvm.structs.FrameData()
         self.cc = self.gateway.jvm.commandcenter.CommandCenter()
-            
         self.player = player
         self.gameData = gameData
-
-        # define prev statuses
-        self.reset()
-        
-        
-        
+        self.reset()    # define prev statuses
         return 0
 
     def reset(self):
@@ -167,52 +153,37 @@ class RunBruceL33pPolicy(object):
                 Q_Table[state][a] = init_q_value
         print state
 
-
-##        CALCULATE THE REWARD FOR THIS STATE, AND THEN PROPOGATE THAT BACK FOR THE PREV STATE
-        # if it is not the first frame
-        if self.prev_state != "":
-            # calculate the reward for this state - if took damage, punish; if dealt damage, reward
-            state_reward = self.CalculateReward()
-##            if state_reward != 0:
-##                print "The reward for this frame is:\t" + str(state_reward)
-            self.setReward(self.prev_state, self.prev_action, state_reward)
-
-
 ##        PICK THE ACTION THE CONTROLLER WILL TAKE
         action = self.PickActionFrom(Q_Table[state])
         if not action in Q_Table[state]:
             print " we  have  a  problem "
             Q_Table[state][action] = init_q_value
 
-##        print "We picked our action:", action
-
-####        PROPOGATE BACK THE Q-VALUE 
-##        if self.prev_state != "":    # if it is not the first frame
-##            # value = q + alpha * (r + gamma * maxQ - q)
-##            q = Q_Table[self.prev_state][self.prev_action]
-##            r = R_Table[self.prev_state][self.prev_action]
-##            maxQ = self.GetMaxQFrom(Q_Table[self.prev_state])
-####            print "q:\t" + str(q) + "\tr:\t" + str(r) + "\tmaxQ:\t" + str(maxQ)
-##            value = q + alpha * (r + gamma * maxQ - q)
-##            print "We set the Q_Table value:\t" + str(value)
-##            Q_Table[self.prev_state][self.prev_action] = value
-
-        #print "We set the Q_Table values"
-
-
         self.prev_my_hp = self.cc.getMyHP()
         self.prev_enemy_hp = self.cc.getEnemyHP()
-        #print "Set self.prev_my_hp & self.prev_enemy_hp:  ",self.prev_my_hp, self.prev_enemy_hp
         self.prev_action = action
         self.prev_state = state
         self.cc.commandCall(action)
            
 
     def PickActionFrom(self, Q_s):
+        random_float = random.random()
+        if random_float <= epsilon:
+            return random.choice(Q_s.keys())
+
+        return self.GetBestActionFrom(Q_s)
         
+    def GetBestActionFrom(self, Q_s):
+        possible_acts = Q_s.keys()
+        best_action = possible_acts[0]
+        best_q = Q_s[best_action]
         
-        #print "Q_s:",Q_s
-        return random.choice(Q_s.keys())
+        for act in possible_acts:
+            if Q_s[act] > best_q:
+                best_action = act
+                best_q = Q_s[act]
+
+        return best_action        
 
     def GetMaxQFrom(self,Q_s):
         #print "GetMaxQFrom"
