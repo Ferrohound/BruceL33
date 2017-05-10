@@ -24,5 +24,6 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="lib/py4j0.10.4.jar"/>
 	<classpathentry kind="lib" path="FightingICE.jar"/>
+	<classpathentry kind="lib" path="AIToolKit.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

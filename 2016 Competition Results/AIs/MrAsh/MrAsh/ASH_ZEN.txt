@@ -1,0 +1,15 @@
+STAND_D_DF_F FOR_JUMP@B@B@B
+SP energy>=300,state=AIR 30
+AIR
+distance<=150,energy>=5 AIR_DB
+energy>=50 AIR _D_DF_FB
+energy>5 AIR _D_DF_FA
+energy<5 B
+END
+FLOOR
+distance>200 FOR_JUMP
+distance>100,energy>=50 STAND_D_DB_BB
+state=AIR STAND_F_D_DFA
+distance>100 STAND_FB
+distance<=100 B
+END

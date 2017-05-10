@@ -1,0 +1,434 @@
+BANZAI@P1 16584
+BANZAI@P1>DragonSurvivor@P2 1000
+BANZAI@P1>iaTest@P2 1292
+BANZAI@P1>IchibanChan@P2 1401
+BANZAI@P1>JayBot2016@P2 1143
+BANZAI@P1>KeepYourDistanceBot@P2 2000
+BANZAI@P1>MctsAi@P2 393
+BANZAI@P1>MrAsh@P2 751
+BANZAI@P1>Poring@P2 1448
+BANZAI@P1>Ranezi@P2 643
+BANZAI@P1>Snorkel@P2 2211
+BANZAI@P1>Thunder01@P2 634
+BANZAI@P1>Tomatensimulator@P2 1491
+BANZAI@P1>Triump@P2 2177
+
+BANZAI@P2 16053
+BANZAI@P2>DragonSurvivor@P1 1467
+BANZAI@P2>iaTest@P1 465
+BANZAI@P2>IchibanChan@P1 1716
+BANZAI@P2>JayBot2016@P1 878
+BANZAI@P2>KeepYourDistanceBot@P1 1846
+BANZAI@P2>MctsAi@P1 594
+BANZAI@P2>MrAsh@P1 547
+BANZAI@P2>Poring@P1 2348
+BANZAI@P2>Ranezi@P1 412
+BANZAI@P2>Snorkel@P1 1976
+BANZAI@P2>Thunder01@P1 395
+BANZAI@P2>Tomatensimulator@P1 909
+BANZAI@P2>Triump@P1 2500
+
+
+DragonSurvivor@P1 18224
+DragonSurvivor@P1>BANZAI@P2 1533
+DragonSurvivor@P1>iaTest@P2 1279
+DragonSurvivor@P1>IchibanChan@P2 909
+DragonSurvivor@P1>JayBot2016@P2 1355
+DragonSurvivor@P1>KeepYourDistanceBot@P2 3000
+DragonSurvivor@P1>MctsAi@P2 1017
+DragonSurvivor@P1>MrAsh@P2 1400
+DragonSurvivor@P1>Poring@P2 1227
+DragonSurvivor@P1>Ranezi@P2 1059
+DragonSurvivor@P1>Snorkel@P2 1619
+DragonSurvivor@P1>Thunder01@P2 1002
+DragonSurvivor@P1>Tomatensimulator@P2 1248
+DragonSurvivor@P1>Triump@P2 1576
+
+DragonSurvivor@P2 18773
+DragonSurvivor@P2>BANZAI@P1 2000
+DragonSurvivor@P2>iaTest@P1 2169
+DragonSurvivor@P2>IchibanChan@P1 1306
+DragonSurvivor@P2>JayBot2016@P1 1444
+DragonSurvivor@P2>KeepYourDistanceBot@P1 2382
+DragonSurvivor@P2>MctsAi@P1 670
+DragonSurvivor@P2>MrAsh@P1 1204
+DragonSurvivor@P2>Poring@P1 1206
+DragonSurvivor@P2>Ranezi@P1 950
+DragonSurvivor@P2>Snorkel@P1 1512
+DragonSurvivor@P2>Thunder01@P1 720
+DragonSurvivor@P2>Tomatensimulator@P1 1441
+DragonSurvivor@P2>Triump@P1 1769
+
+
+iaTest@P1 19510
+iaTest@P1>BANZAI@P2 2535
+iaTest@P1>DragonSurvivor@P2 831
+iaTest@P1>IchibanChan@P2 1339
+iaTest@P1>JayBot2016@P2 1500
+iaTest@P1>KeepYourDistanceBot@P2 1500
+iaTest@P1>MctsAi@P2 1511
+iaTest@P1>MrAsh@P2 1500
+iaTest@P1>Poring@P2 1633
+iaTest@P1>Ranezi@P2 1399
+iaTest@P1>Snorkel@P2 1500
+iaTest@P1>Thunder01@P2 1292
+iaTest@P1>Tomatensimulator@P2 1470
+iaTest@P1>Triump@P2 1500
+
+iaTest@P2 19331
+iaTest@P2>BANZAI@P1 1708
+iaTest@P2>DragonSurvivor@P1 1721
+iaTest@P2>IchibanChan@P1 1500
+iaTest@P2>JayBot2016@P1 1500
+iaTest@P2>KeepYourDistanceBot@P1 1500
+iaTest@P2>MctsAi@P1 1200
+iaTest@P2>MrAsh@P1 1500
+iaTest@P2>Poring@P1 1821
+iaTest@P2>Ranezi@P1 1634
+iaTest@P2>Snorkel@P1 1500
+iaTest@P2>Thunder01@P1 1051
+iaTest@P2>Tomatensimulator@P1 1196
+iaTest@P2>Triump@P1 1500
+
+
+IchibanChan@P1 18862
+IchibanChan@P1>BANZAI@P2 1284
+IchibanChan@P1>DragonSurvivor@P2 1694
+IchibanChan@P1>iaTest@P2 1500
+IchibanChan@P1>JayBot2016@P2 906
+IchibanChan@P1>KeepYourDistanceBot@P2 1925
+IchibanChan@P1>MctsAi@P2 952
+IchibanChan@P1>MrAsh@P2 1099
+IchibanChan@P1>Poring@P2 1871
+IchibanChan@P1>Ranezi@P2 1139
+IchibanChan@P1>Snorkel@P2 1884
+IchibanChan@P1>Thunder01@P2 1154
+IchibanChan@P1>Tomatensimulator@P2 1364
+IchibanChan@P1>Triump@P2 2090
+
+IchibanChan@P2 19568
+IchibanChan@P2>BANZAI@P1 1599
+IchibanChan@P2>DragonSurvivor@P1 2092
+IchibanChan@P2>iaTest@P1 1661
+IchibanChan@P2>JayBot2016@P1 1134
+IchibanChan@P2>KeepYourDistanceBot@P1 2500
+IchibanChan@P2>MctsAi@P1 959
+IchibanChan@P2>MrAsh@P1 1021
+IchibanChan@P2>Poring@P1 1804
+IchibanChan@P2>Ranezi@P1 1025
+IchibanChan@P2>Snorkel@P1 1455
+IchibanChan@P2>Thunder01@P1 1127
+IchibanChan@P2>Tomatensimulator@P1 1408
+IchibanChan@P2>Triump@P1 1783
+
+
+JayBot2016@P1 21986
+JayBot2016@P1>BANZAI@P2 2122
+JayBot2016@P1>DragonSurvivor@P2 1556
+JayBot2016@P1>iaTest@P2 1500
+JayBot2016@P1>IchibanChan@P2 1867
+JayBot2016@P1>KeepYourDistanceBot@P2 2500
+JayBot2016@P1>MctsAi@P2 1344
+JayBot2016@P1>MrAsh@P2 1500
+JayBot2016@P1>Poring@P2 2006
+JayBot2016@P1>Ranezi@P2 1248
+JayBot2016@P1>Snorkel@P2 1500
+JayBot2016@P1>Thunder01@P2 1348
+JayBot2016@P1>Tomatensimulator@P2 1677
+JayBot2016@P1>Triump@P2 1818
+
+JayBot2016@P2 22850
+JayBot2016@P2>BANZAI@P1 1857
+JayBot2016@P2>DragonSurvivor@P1 1645
+JayBot2016@P2>iaTest@P1 1500
+JayBot2016@P2>IchibanChan@P1 2094
+JayBot2016@P2>KeepYourDistanceBot@P1 2500
+JayBot2016@P2>MctsAi@P1 1716
+JayBot2016@P2>MrAsh@P1 1500
+JayBot2016@P2>Poring@P1 1534
+JayBot2016@P2>Ranezi@P1 1319
+JayBot2016@P2>Snorkel@P1 2405
+JayBot2016@P2>Thunder01@P1 1328
+JayBot2016@P2>Tomatensimulator@P1 1730
+JayBot2016@P2>Triump@P1 1722
+
+
+KeepYourDistanceBot@P1 9328
+KeepYourDistanceBot@P1>BANZAI@P2 1154
+KeepYourDistanceBot@P1>DragonSurvivor@P2 618
+KeepYourDistanceBot@P1>iaTest@P2 1500
+KeepYourDistanceBot@P1>IchibanChan@P2 500
+KeepYourDistanceBot@P1>JayBot2016@P2 500
+KeepYourDistanceBot@P1>MctsAi@P2 184
+KeepYourDistanceBot@P1>MrAsh@P2 204
+KeepYourDistanceBot@P1>Poring@P2 1000
+KeepYourDistanceBot@P1>Ranezi@P2 125
+KeepYourDistanceBot@P1>Snorkel@P2 1500
+KeepYourDistanceBot@P1>Thunder01@P2 102
+KeepYourDistanceBot@P1>Tomatensimulator@P2 141
+KeepYourDistanceBot@P1>Triump@P2 1800
+
+KeepYourDistanceBot@P2 8323
+KeepYourDistanceBot@P2>BANZAI@P1 1000
+KeepYourDistanceBot@P2>DragonSurvivor@P1 0
+KeepYourDistanceBot@P2>iaTest@P1 1500
+KeepYourDistanceBot@P2>IchibanChan@P1 1075
+KeepYourDistanceBot@P2>JayBot2016@P1 500
+KeepYourDistanceBot@P2>MctsAi@P1 0
+KeepYourDistanceBot@P2>MrAsh@P1 49
+KeepYourDistanceBot@P2>Poring@P1 1000
+KeepYourDistanceBot@P2>Ranezi@P1 52
+KeepYourDistanceBot@P2>Snorkel@P1 1500
+KeepYourDistanceBot@P2>Thunder01@P1 55
+KeepYourDistanceBot@P2>Tomatensimulator@P1 92
+KeepYourDistanceBot@P2>Triump@P1 1500
+
+
+MctsAi@P1 26364
+MctsAi@P1>BANZAI@P2 2406
+MctsAi@P1>DragonSurvivor@P2 2330
+MctsAi@P1>iaTest@P2 1800
+MctsAi@P1>IchibanChan@P2 2041
+MctsAi@P1>JayBot2016@P2 1284
+MctsAi@P1>KeepYourDistanceBot@P2 3000
+MctsAi@P1>MrAsh@P2 1915
+MctsAi@P1>Poring@P2 2608
+MctsAi@P1>Ranezi@P2 1021
+MctsAi@P1>Snorkel@P2 1929
+MctsAi@P1>Thunder01@P2 1643
+MctsAi@P1>Tomatensimulator@P2 1945
+MctsAi@P1>Triump@P2 2442
+
+MctsAi@P2 25757
+MctsAi@P2>BANZAI@P1 2607
+MctsAi@P2>DragonSurvivor@P1 1983
+MctsAi@P2>iaTest@P1 1489
+MctsAi@P2>IchibanChan@P1 2048
+MctsAi@P2>JayBot2016@P1 1657
+MctsAi@P2>KeepYourDistanceBot@P1 2816
+MctsAi@P2>MrAsh@P1 1765
+MctsAi@P2>Poring@P1 1638
+MctsAi@P2>Ranezi@P1 1796
+MctsAi@P2>Snorkel@P1 2472
+MctsAi@P2>Thunder01@P1 1305
+MctsAi@P2>Tomatensimulator@P1 1805
+MctsAi@P2>Triump@P1 2376
+
+
+MrAsh@P1 21857
+MrAsh@P1>BANZAI@P2 2453
+MrAsh@P1>DragonSurvivor@P2 1796
+MrAsh@P1>iaTest@P2 1500
+MrAsh@P1>IchibanChan@P2 1979
+MrAsh@P1>JayBot2016@P2 1500
+MrAsh@P1>KeepYourDistanceBot@P2 2951
+MrAsh@P1>MctsAi@P2 1235
+MrAsh@P1>Poring@P2 1472
+MrAsh@P1>Ranezi@P2 1180
+MrAsh@P1>Snorkel@P2 1500
+MrAsh@P1>Thunder01@P2 1258
+MrAsh@P1>Tomatensimulator@P2 1533
+MrAsh@P1>Triump@P2 1500
+
+MrAsh@P2 21317
+MrAsh@P2>BANZAI@P1 2249
+MrAsh@P2>DragonSurvivor@P1 1600
+MrAsh@P2>iaTest@P1 1500
+MrAsh@P2>IchibanChan@P1 1901
+MrAsh@P2>JayBot2016@P1 1500
+MrAsh@P2>KeepYourDistanceBot@P1 2796
+MrAsh@P2>MctsAi@P1 1085
+MrAsh@P2>Poring@P1 1679
+MrAsh@P2>Ranezi@P1 1161
+MrAsh@P2>Snorkel@P1 1500
+MrAsh@P2>Thunder01@P1 1253
+MrAsh@P2>Tomatensimulator@P1 1593
+MrAsh@P2>Triump@P1 1500
+
+
+Poring@P1 15705
+Poring@P1>BANZAI@P2 652
+Poring@P1>DragonSurvivor@P2 1794
+Poring@P1>iaTest@P2 1179
+Poring@P1>IchibanChan@P2 1196
+Poring@P1>JayBot2016@P2 1466
+Poring@P1>KeepYourDistanceBot@P2 2000
+Poring@P1>MctsAi@P2 1362
+Poring@P1>MrAsh@P2 1321
+Poring@P1>Ranezi@P2 387
+Poring@P1>Snorkel@P2 1838
+Poring@P1>Thunder01@P2 373
+Poring@P1>Tomatensimulator@P2 359
+Poring@P1>Triump@P2 1778
+
+Poring@P2 16164
+Poring@P2>BANZAI@P1 1552
+Poring@P2>DragonSurvivor@P1 1773
+Poring@P2>iaTest@P1 1367
+Poring@P2>IchibanChan@P1 1129
+Poring@P2>JayBot2016@P1 994
+Poring@P2>KeepYourDistanceBot@P1 2000
+Poring@P2>MctsAi@P1 392
+Poring@P2>MrAsh@P1 1528
+Poring@P2>Ranezi@P1 1487
+Poring@P2>Snorkel@P1 1649
+Poring@P2>Thunder01@P1 86
+Poring@P2>Tomatensimulator@P1 433
+Poring@P2>Triump@P1 1774
+
+
+Ranezi@P1 25203
+Ranezi@P1>BANZAI@P2 2588
+Ranezi@P1>DragonSurvivor@P2 2050
+Ranezi@P1>iaTest@P2 1366
+Ranezi@P1>IchibanChan@P2 1975
+Ranezi@P1>JayBot2016@P2 1681
+Ranezi@P1>KeepYourDistanceBot@P2 2948
+Ranezi@P1>MctsAi@P2 1204
+Ranezi@P1>MrAsh@P2 1839
+Ranezi@P1>Poring@P2 1513
+Ranezi@P1>Snorkel@P2 2423
+Ranezi@P1>Thunder01@P2 1282
+Ranezi@P1>Tomatensimulator@P2 1719
+Ranezi@P1>Triump@P2 2615
+
+Ranezi@P2 26802
+Ranezi@P2>BANZAI@P1 2357
+Ranezi@P2>DragonSurvivor@P1 1941
+Ranezi@P2>iaTest@P1 1601
+Ranezi@P2>IchibanChan@P1 1861
+Ranezi@P2>JayBot2016@P1 1752
+Ranezi@P2>KeepYourDistanceBot@P1 2875
+Ranezi@P2>MctsAi@P1 1979
+Ranezi@P2>MrAsh@P1 1820
+Ranezi@P2>Poring@P1 2613
+Ranezi@P2>Snorkel@P1 2307
+Ranezi@P2>Thunder01@P1 1464
+Ranezi@P2>Tomatensimulator@P1 1850
+Ranezi@P2>Triump@P1 2382
+
+
+Snorkel@P1 15059
+Snorkel@P1>BANZAI@P2 1026
+Snorkel@P1>DragonSurvivor@P2 1488
+Snorkel@P1>iaTest@P2 1500
+Snorkel@P1>IchibanChan@P2 1545
+Snorkel@P1>JayBot2016@P2 595
+Snorkel@P1>KeepYourDistanceBot@P2 1500
+Snorkel@P1>MctsAi@P2 528
+Snorkel@P1>MrAsh@P2 1500
+Snorkel@P1>Poring@P2 1351
+Snorkel@P1>Ranezi@P2 693
+Snorkel@P1>Thunder01@P2 853
+Snorkel@P1>Tomatensimulator@P2 980
+Snorkel@P1>Triump@P2 1500
+
+Snorkel@P2 15507
+Snorkel@P2>BANZAI@P1 789
+Snorkel@P2>DragonSurvivor@P1 1381
+Snorkel@P2>iaTest@P1 1500
+Snorkel@P2>IchibanChan@P1 1116
+Snorkel@P2>JayBot2016@P1 1500
+Snorkel@P2>KeepYourDistanceBot@P1 1500
+Snorkel@P2>MctsAi@P1 1071
+Snorkel@P2>MrAsh@P1 1500
+Snorkel@P2>Poring@P1 1162
+Snorkel@P2>Ranezi@P1 577
+Snorkel@P2>Thunder01@P1 880
+Snorkel@P2>Tomatensimulator@P1 1031
+Snorkel@P2>Triump@P1 1500
+
+
+Thunder01@P1 27324
+Thunder01@P1>BANZAI@P2 2605
+Thunder01@P1>DragonSurvivor@P2 2280
+Thunder01@P1>iaTest@P2 1949
+Thunder01@P1>IchibanChan@P2 1873
+Thunder01@P1>JayBot2016@P2 1672
+Thunder01@P1>KeepYourDistanceBot@P2 2945
+Thunder01@P1>MctsAi@P2 1695
+Thunder01@P1>MrAsh@P2 1747
+Thunder01@P1>Poring@P2 2914
+Thunder01@P1>Ranezi@P2 1536
+Thunder01@P1>Snorkel@P2 2120
+Thunder01@P1>Tomatensimulator@P2 1812
+Thunder01@P1>Triump@P2 2176
+
+Thunder01@P2 25986
+Thunder01@P2>BANZAI@P1 2366
+Thunder01@P2>DragonSurvivor@P1 1998
+Thunder01@P2>iaTest@P1 1708
+Thunder01@P2>IchibanChan@P1 1846
+Thunder01@P2>JayBot2016@P1 1652
+Thunder01@P2>KeepYourDistanceBot@P1 2898
+Thunder01@P2>MctsAi@P1 1357
+Thunder01@P2>MrAsh@P1 1742
+Thunder01@P2>Poring@P1 2627
+Thunder01@P2>Ranezi@P1 1718
+Thunder01@P2>Snorkel@P1 2147
+Thunder01@P2>Tomatensimulator@P1 1791
+Thunder01@P2>Triump@P1 2136
+
+
+Tomatensimulator@P1 22797
+Tomatensimulator@P1>BANZAI@P2 2091
+Tomatensimulator@P1>DragonSurvivor@P2 1559
+Tomatensimulator@P1>iaTest@P2 1804
+Tomatensimulator@P1>IchibanChan@P2 1592
+Tomatensimulator@P1>JayBot2016@P2 1270
+Tomatensimulator@P1>KeepYourDistanceBot@P2 2908
+Tomatensimulator@P1>MctsAi@P2 1195
+Tomatensimulator@P1>MrAsh@P2 1407
+Tomatensimulator@P1>Poring@P2 2567
+Tomatensimulator@P1>Ranezi@P2 1150
+Tomatensimulator@P1>Snorkel@P2 1969
+Tomatensimulator@P1>Thunder01@P2 1209
+Tomatensimulator@P1>Triump@P2 2076
+
+Tomatensimulator@P2 22390
+Tomatensimulator@P2>BANZAI@P1 1509
+Tomatensimulator@P2>DragonSurvivor@P1 1752
+Tomatensimulator@P2>iaTest@P1 1530
+Tomatensimulator@P2>IchibanChan@P1 1636
+Tomatensimulator@P2>JayBot2016@P1 1323
+Tomatensimulator@P2>KeepYourDistanceBot@P1 2859
+Tomatensimulator@P2>MctsAi@P1 1055
+Tomatensimulator@P2>MrAsh@P1 1467
+Tomatensimulator@P2>Poring@P1 2641
+Tomatensimulator@P2>Ranezi@P1 1281
+Tomatensimulator@P2>Snorkel@P1 2020
+Tomatensimulator@P2>Thunder01@P1 1188
+Tomatensimulator@P2>Triump@P1 2129
+
+
+Triump@P1 14429
+Triump@P1>BANZAI@P2 500
+Triump@P1>DragonSurvivor@P2 1231
+Triump@P1>iaTest@P2 1500
+Triump@P1>IchibanChan@P2 1217
+Triump@P1>JayBot2016@P2 1278
+Triump@P1>KeepYourDistanceBot@P2 1500
+Triump@P1>MctsAi@P2 624
+Triump@P1>MrAsh@P2 1500
+Triump@P1>Poring@P2 1226
+Triump@P1>Ranezi@P2 618
+Triump@P1>Snorkel@P2 1500
+Triump@P1>Thunder01@P2 864
+Triump@P1>Tomatensimulator@P2 871
+
+Triump@P2 13952
+Triump@P2>BANZAI@P1 823
+Triump@P2>DragonSurvivor@P1 1424
+Triump@P2>iaTest@P1 1500
+Triump@P2>IchibanChan@P1 910
+Triump@P2>JayBot2016@P1 1182
+Triump@P2>KeepYourDistanceBot@P1 1200
+Triump@P2>MctsAi@P1 558
+Triump@P2>MrAsh@P1 1500
+Triump@P2>Poring@P1 1222
+Triump@P2>Ranezi@P1 385
+Triump@P2>Snorkel@P1 1500
+Triump@P2>Thunder01@P1 824
+Triump@P2>Tomatensimulator@P1 924
+
+

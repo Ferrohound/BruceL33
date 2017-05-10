@@ -5,26 +5,28 @@ possible_actions = ["AIR","AIR_A","AIR_B","AIR_D_DB_BA","AIR_D_DB_BB","AIR_D_DF_
 #standing_actions = ["STAND","STAND_A","STAND_B","STAND_D_DB_BA","STAND_D_DB_BB","STAND_D_DF_FA","STAND_D_DF_FB","STAND_D_DF_FC","STAND_F_D_DFA","STAND_F_D_DFB","STAND_FA","STAND_FB","STAND_GUARD","STAND_GUARD_RECOV","STAND_RECOV"]
 
 
-Q_Table = {}
-R_Table = {}
-init_q_value = 0.0
-init_r_value = 0.0
-downed_self_reward = -15
-downed_enemy_reward = 15
-win_reward = 100
-lose_reward = -100
 
-hp_grouping = 20
-energy_grouping = 10
-dist_x_grouping = 3
-dist_y_grouping = 10
-distance_cut_off = 250
-
-alpha = 0.8
-gamma = 0.2
-epsilon = 0.3
 
 class BruceL33p(object):
+
+##    STATIC MEMBER VARIABLES ACROSS ALL CLASSES
+    Q_Table = {}
+    R_Table = {}
+    init_q_value = 0.0
+    init_r_value = 0.0
+    downed_self_reward = -2
+    downed_enemy_reward = 2
+
+    hp_grouping = 20
+    energy_grouping = 10
+    dist_x_grouping = 3
+    dist_y_grouping = 10
+    distance_cut_off = 250
+
+    alpha = 0.8
+    gamma = 0.2
+    epsilon = 0.3
+    
     def __init__(self, gateway):
         self.gateway = gateway
 
@@ -42,31 +44,39 @@ class BruceL33p(object):
         return "ZEN"
 
 
-##    WRITE OUT THE Q_TABLE TO A TEXT FILE SO I CAN LOOK AT IT
+##    WRITE OUT THE self.Q_Table TO A TEXT FILE SO I CAN LOOK AT IT
     def WriteQTable(self, fname):
 ##        print "Time to write the reward table!"
         out = open(fname, 'w')
-        for s in Q_Table.keys():
+        for s in self.Q_Table.keys():
 ##            print "Writing Q out @ state:\t" + s
-            out.write(s+'\n')
-            for a in Q_Table[s].keys():
-                if Q_Table[s][a] != 0:
-                    out.write('\t'+a+'\t-\t'+str(Q_Table[s][a])+'\n')
-##                    print "Writing Q out @ [state][action]:\t[" + s + "][" + a + "]"
+            non_zero = False
+            for a in self.Q_Table[s].keys():
+                if self.Q_Table[s][a] != 0:
+                    non_zero = True
+                    break
+
+            if non_zero:
+                out.write(s+'\n')
+            
+                for a in self.Q_Table[s].keys():
+                    if self.Q_Table[s][a] != 0:
+                        out.write('\t'+a+'\t-\t'+str(self.Q_Table[s][a])+'\n')
+    ##                    print "Writing Q out @ [state][action]:\t[" + s + "][" + a + "]"
         out.close()
         print "Done Writing Q Table."
 
 
-##    WRITE OUT THE R_TABLE TO A TEXT FILE SO I CAN LOOK AT IT
+##    WRITE OUT THE self.R_Table TO A TEXT FILE SO I CAN LOOK AT IT
     def WriteRTable(self, fname):
 ##        print "Time to write the reward table!"
         out = open(fname, 'w')
-        for s in R_Table.keys():
+        for s in self.R_Table.keys():
 ##            print "Writing R out @ state:\t" + s
             out.write(s+'\n')
-            for a in R_Table[s].keys():
-                if R_Table[s][a] != 0:
-                    out.write('\t'+a+'\t-\t'+str(R_Table[s][a])+'\n')
+            for a in self.R_Table[s].keys():
+                if self.R_Table[s][a] != 0:
+                    out.write('\t'+a+'\t-\t'+str(self.R_Table[s][a])+'\n')
         out.close()
         print "Done Writing R Table."
 
@@ -101,13 +111,13 @@ class BruceL33p(object):
 ##            print "Determining if we won..."
 ##            if self.prev_my_hp > self.prev_enemy_hp:   ##  WON
 ##                print "\n\n\nWE WON \tRestarting...\n\n\n"
-##                R_Table[self.prev_state][self.prev_action] = win_reward
+##                self.R_Table[self.prev_state][self.prev_action] = win_reward
 ##            else:                                   ##  LOST
 ##                print "\n\n\nWE LOST/TIED \tRestarting...\n\n\n"
 ##                print self.prev_state,self.prev_action
-##                if not self.prev_state in R_Table:
-##                    print "The issue is the prev state isn't in the R_Table!"
-##                R_Table[self.prev_state][self.prev_action] = lose_reward
+##                if not self.prev_state in self.R_Table:
+##                    print "The issue is the prev state isn't in the self.R_Table!"
+##                self.R_Table[self.prev_state][self.prev_action] = lose_reward
 ##            self.running = False
 ##        else:
 ##            print "Restarted but not the first time"
@@ -127,16 +137,16 @@ class BruceL33p(object):
 
     def encodeState(self):
 ##        my_char = self.cc.getMyCharacter()
-##        my_hp = self.cc.getMyHP() / hp_grouping
-        my_energy = self.cc.getMyEnergy() / energy_grouping
+##        my_hp = self.cc.getMyHP() / self.hp_grouping
+        my_energy = self.cc.getMyEnergy() / self.energy_grouping
 ##        enemy_char = self.cc.getEnemyCharacter()
-##        enemy_hp = self.cc.getEnemyHP() / hp_grouping
-##        enemy_energy = self.cc.getEnemyEnergy() / energy_grouping
+##        enemy_hp = self.cc.getEnemyHP() / self.hp_grouping
+##        enemy_energy = self.cc.getEnemyEnergy() / self.energy_grouping
 
-        dist_x =  abs( ( self.cc.getEnemyX() - self.cc.getMyX() ) / dist_x_grouping )
-        if dist_x > distance_cut_off / dist_x_grouping:
-            dist_x = str(distance_cut_off) + "+"
-        dist_y = ( self.cc.getEnemyY() - self.cc.getMyY() ) / dist_y_grouping
+        dist_x =  abs( ( self.cc.getEnemyX() - self.cc.getMyX() ) / self.dist_x_grouping )
+        if dist_x > self.distance_cut_off / self.dist_x_grouping:
+            dist_x = str(self.distance_cut_off) + "+"
+        dist_y = ( self.cc.getEnemyY() - self.cc.getMyY() ) / self.dist_y_grouping
         myChar = self.cc.getMyCharacter()
         myStatus = self.cc.getMyCharacter().getState()
         oppStatus = self.cc.getEnemyCharacter().getState()
@@ -165,10 +175,10 @@ class BruceL33p(object):
 
 ##        ENCODE THE CURRENT STATE
         state = self.encodeState()
-        if not state in Q_Table:
-            Q_Table[state] = {}
+        if not state in self.Q_Table:
+            self.Q_Table[state] = {}
 ##            for a in possible_actions:
-##                Q_Table[state][a] = init_q_value
+##                self.Q_Table[state][a] = self.init_q_value
             
 ##        print state
 
@@ -184,29 +194,29 @@ class BruceL33p(object):
 
         
 ##        PICK THE ACTION THE CONTROLLER WILL TAKE
-        action = self.PickActionFrom(Q_Table[state])
-        if not action in Q_Table[state]:
-##            print "New action, initializing value to", init_q_value
-            Q_Table[state][action] = init_q_value
+        action = self.PickActionFrom(self.Q_Table[state])
+        if not action in self.Q_Table[state]:
+##            print "New action, initializing value to", self.init_q_value
+            self.Q_Table[state][action] = self.init_q_value
 ##        print "Selected the action"
 
         
 ##        PROPOGATE BACK THE Q-VALUE 
         if self.prev_state != "":    # if it is not the first frame
-            # value = q + alpha * (r + gamma * maxQ - q)
+            # value = q + self.alpha * (r + self.gamma * maxQ - q)
             q = 0
-            if self.prev_state in Q_Table and self.prev_action in Q_Table[self.prev_state]:
-                Q_Table[self.prev_state][self.prev_action]
+            if self.prev_state in self.Q_Table and self.prev_action in self.Q_Table[self.prev_state]:
+                self.Q_Table[self.prev_state][self.prev_action]
             r = 0
-            if self.prev_state in R_Table and self.prev_action in R_Table[self.prev_state]:
-                r = R_Table[self.prev_state][self.prev_action]
-            maxQ = self.GetMaxQFrom(Q_Table[self.prev_state])
+            if self.prev_state in self.R_Table and self.prev_action in self.R_Table[self.prev_state]:
+                r = self.R_Table[self.prev_state][self.prev_action]
+            maxQ = self.GetMaxQFrom(self.Q_Table[self.prev_state])
             #print "q:\t" + str(q) + "\tr:\t" + str(r) + "\tmaxQ:\t" + str(maxQ)
-            value = q + alpha * (r + gamma * maxQ - q)
+            value = q + self.alpha * (r + self.gamma * maxQ - q)
 
             if value != 0:
-                Q_Table[self.prev_state][self.prev_action] = value
-##                print "We set the Q_Table value:\t" + str(value)
+                self.Q_Table[self.prev_state][self.prev_action] = value
+##                print "We set the self.Q_Table value:\t" + str(value)
 
         self.prev_my_hp = self.cc.getMyHP()
         self.prev_enemy_hp = self.cc.getEnemyHP()
@@ -218,7 +228,7 @@ class BruceL33p(object):
 ##        print "Finished processing()"            
 
     def PickActionFrom(self, Q_s):
-        if random.random() <= epsilon:
+        if random.random() <= self.epsilon:
 ##            print "Choosing random action"
             return random.choice(possible_actions)
 
@@ -270,10 +280,10 @@ class BruceL33p(object):
         opp_state = str(self.cc.getEnemyCharacter().getState())
 ##        print "About to calculate enemy downed and stuff"
         if my_state == "DOWN":
-            my_downed = downed_self_reward
+            my_downed = self.downed_self_reward
             
         if opp_state == "DOWN":
-            enemy_downed = downed_enemy_reward
+            enemy_downed = self.downed_enemy_reward
         
         reward = -my_hp_diff + enemy_hp_diff + my_downed + enemy_downed
         #print "Returning the reward:", reward
@@ -281,12 +291,12 @@ class BruceL33p(object):
 
     def setReward(self, s, a, r):
         #print "State of setReward"
-        if not s in R_Table:
-            R_Table[s] = {}
+        if not s in self.R_Table:
+            self.R_Table[s] = {}
 ##            for act in possible_actions:
-##                R_Table[s][act] = init_r_value
+##                self.R_Table[s][act] = self.init_r_value
         #print "Got through the initialization step i did"
-        R_Table[s][a] = r
+        self.R_Table[s][a] = r
         #print "Finished setting the reward"
     
     # This part is mandatory

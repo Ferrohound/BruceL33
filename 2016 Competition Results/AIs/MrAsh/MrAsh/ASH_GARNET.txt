@@ -1,0 +1,8 @@
+STAND_D_DF_F FOR_JUMP@A@A
+SP distance<=150,energy>=300,state=STAND 50
+AIR
+END
+FLOOR
+distance>200 FOR_JUMP@A@A
+corner=true,distance<80 FOR_JUMP@A@A
+END
