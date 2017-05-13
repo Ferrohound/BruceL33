@@ -27,58 +27,105 @@ class BruceL33p(object):
     gamma = 0.2
     epsilon = 0.3
     
-    def __init__(self, gateway):
+    def __init__(self, gateway, load=True):
         self.gateway = gateway
 
         self.width = 96 # The width of the display to obtain
         self.height = 64 # The height of the display to obtain
         self.grayscale = True # The display"s color to obtain true for grayscale, false for RGB
         self.running = False
+        self.results = {}
+        self.game_number = 0
 ##        print "__init__()..."
 ##        print "__init__()..."
 ##        print "__init__()..."
 ##        print "__init__()..."
-
+        if load:
+            self.LoadQTable("QTable.txt")
+            self.LoadRTable("RTable.txt")
 
     def getCharacter(self):
         return "ZEN"
 
 
+    def LoadQTable(self, fname):
+        lines = open(fname, 'r').read().split('\n')
+##        print "Number of lines:",len(lines)
+        state = ""
+        for line in lines:
+            parts = line.split('\t')
+            if len(parts) == 1:
+                self.Q_Table[line] = {}
+                state = line
+            else:
+                self.Q_Table[state][parts[1]] = float(parts[3])
+
+        print "Done loading Q_Table:",len(self.Q_Table)
+
+    def LoadRTable(self, fname):
+        lines = open(fname,'r').read().split('\n')
+        state = ""
+        for line in lines:
+            parts = line.split('\t')
+            if len(parts) == 1:
+                self.R_Table[line] = {}
+##                print line, " THIS IS A STATE!"
+##                if "CROUCH_RECOV" in line:
+##                    print line
+
+                state = line
+            else:
+##                print parts[1], parts[3]
+                self.R_Table[state][parts[1]] = float(parts[3])
+
+##        for s in self.R_Table.keys():
+##            if type(self.R_Table[s]) != type({}):
+##                print "ok we got the problem here!"
+##                print "s = ", s
+##                print "self.R_Table[s] = ",self.R_Table[s]
+##                raw_input("Stoppnig program")
+
 ##    WRITE OUT THE self.Q_Table TO A TEXT FILE SO I CAN LOOK AT IT
     def WriteQTable(self, fname):
-##        print "Time to write the reward table!"
         out = open(fname, 'w')
         for s in self.Q_Table.keys():
-##            print "Writing Q out @ state:\t" + s
             non_zero = False
             for a in self.Q_Table[s].keys():
                 if self.Q_Table[s][a] != 0:
                     non_zero = True
                     break
-
             if non_zero:
                 out.write(s+'\n')
-            
                 for a in self.Q_Table[s].keys():
                     if self.Q_Table[s][a] != 0:
                         out.write('\t'+a+'\t-\t'+str(self.Q_Table[s][a])+'\n')
-    ##                    print "Writing Q out @ [state][action]:\t[" + s + "][" + a + "]"
         out.close()
         print "Done Writing Q Table."
 
 
 ##    WRITE OUT THE self.R_Table TO A TEXT FILE SO I CAN LOOK AT IT
     def WriteRTable(self, fname):
-##        print "Time to write the reward table!"
         out = open(fname, 'w')
         for s in self.R_Table.keys():
-##            print "Writing R out @ state:\t" + s
             out.write(s+'\n')
+##            print "Writing s:",s
+##            print "R_Table[s] =",self.R_Table[s]
             for a in self.R_Table[s].keys():
                 if self.R_Table[s][a] != 0:
                     out.write('\t'+a+'\t-\t'+str(self.R_Table[s][a])+'\n')
         out.close()
         print "Done Writing R Table."
+
+
+##    WRITE OUT THE RESULTS/SCORES WE COLLECTED OVER THE TRAINING
+    def WriteResults(self, num):
+        out = open("ResultsAgainstAgent"+str(num)+".txt", 'w')
+        for x in range(1,self.game_number+1):
+            out.write(str(x)+'\t' + str(self.results[x]) +'\n')
+            print "Wrote results for game", x
+        out.write(str(self.game_number+1)+'\t' + str(self.prev_my_hp - self.prev_enemy_hp) +'\n')
+        out.close()
+        print "Done Writing RESULTS."
 
 
 ##    CLOSING FUNCTION CALLED BY JAVA
@@ -107,20 +154,24 @@ class BruceL33p(object):
         return 0
 
     def reset(self):
-##        if self.running:    ##  DETERMINE IF WE WON BASED ON PREVIOUS HP - PUNISH THE PREV STATE AND PREV ACTION APPROPRIATELY
+        if self.running:    ##  DETERMINE IF WE WON BASED ON PREVIOUS HP - PUNISH THE PREV STATE AND PREV ACTION APPROPRIATELY
 ##            print "Determining if we won..."
+            self.game_number += 1
+            self.results[self.game_number] = self.prev_my_hp - self.prev_enemy_hp
+##            print "After game", self.game_number, "health difference was", self.prev_my_hp - self.prev_enemy_hp
 ##            if self.prev_my_hp > self.prev_enemy_hp:   ##  WON
 ##                print "\n\n\nWE WON \tRestarting...\n\n\n"
-##                self.R_Table[self.prev_state][self.prev_action] = win_reward
+####                self.R_Table[self.prev_state][self.prev_action] = win_reward
 ##            else:                                   ##  LOST
 ##                print "\n\n\nWE LOST/TIED \tRestarting...\n\n\n"
 ##                print self.prev_state,self.prev_action
-##                if not self.prev_state in self.R_Table:
-##                    print "The issue is the prev state isn't in the self.R_Table!"
-##                self.R_Table[self.prev_state][self.prev_action] = lose_reward
-##            self.running = False
+            self.running = False
+
+##            raw_input("Stopping server so you can read the output...")
+            
 ##        else:
-##            print "Restarted but not the first time"
+##            if not self.running:
+##                print "Restarted but not the first time"
         
         self.prev_action = "STAND"  # player starts standing
         self.prev_state = ""
@@ -162,12 +213,20 @@ class BruceL33p(object):
         if self.frameData.getEmptyFlag() or self.frameData.getRemainingTime() <= 0:
             self.isGameJustStarted = True
             self.reset()
+            if self.running:
+                self.running = False
+##                print "Set self.running to False"
             return
-
-##        self.running = True
+        if not self.running:
+            self.running = True
+##            print "Set self.running to True"
+            
         if self.cc.getskillFlag():
             self.inputKey = self.cc.getSkillKey()
             return
+
+##        if self.prev_state == "":
+##            print "SELF.PREV_STATE IS EMPTY!"
 
         self.inputKey.empty()
         self.cc.skillCancel()
@@ -206,17 +265,15 @@ class BruceL33p(object):
             # value = q + self.alpha * (r + self.gamma * maxQ - q)
             q = 0
             if self.prev_state in self.Q_Table and self.prev_action in self.Q_Table[self.prev_state]:
-                self.Q_Table[self.prev_state][self.prev_action]
+                q = self.Q_Table[self.prev_state][self.prev_action]
             r = 0
             if self.prev_state in self.R_Table and self.prev_action in self.R_Table[self.prev_state]:
                 r = self.R_Table[self.prev_state][self.prev_action]
             maxQ = self.GetMaxQFrom(self.Q_Table[self.prev_state])
             #print "q:\t" + str(q) + "\tr:\t" + str(r) + "\tmaxQ:\t" + str(maxQ)
             value = q + self.alpha * (r + self.gamma * maxQ - q)
-
             if value != 0:
                 self.Q_Table[self.prev_state][self.prev_action] = value
-##                print "We set the self.Q_Table value:\t" + str(value)
 
         self.prev_my_hp = self.cc.getMyHP()
         self.prev_enemy_hp = self.cc.getEnemyHP()

@@ -3,7 +3,7 @@ from py4j.java_gateway import JavaGateway, GatewayParameters, CallbackServerPara
 from BruceL33p import BruceL33p
 
 def start_game(manager, agent, opponent=0):
-        GAME_NUM = 1000
+        GAME_NUM = 60
         program_start = time.time()
         for i in range(GAME_NUM):
                 manager.registerAI("BruceL33p", agent)
@@ -41,6 +41,8 @@ def worker(i):
 
         main_process(manager, gateway, Bruce, i)
 
+        Bruce.WriteResults(i+1)
+        
         return 
 
 def main():
@@ -49,7 +51,7 @@ def main():
         program_start = time.time()
 
         threads = []
-        for i in range(2):
+        for i in range(1):
                 t = threading.Thread(target=worker, args=(i,))
                 threads.append(t)
                 t.start()
@@ -57,7 +59,7 @@ def main():
         for t in threads:
                 t.join()
         
-        Bruce = BruceL33p("garbage gateway")
+        Bruce = BruceL33p("garbage gateway", False)
         run_end_time = time.time()
         write_start = time.time()
         print "Writing tables..."
